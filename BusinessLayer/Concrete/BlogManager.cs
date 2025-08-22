@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,35 @@ namespace BusinessLayer.Concrete
 {
     public class BlogManager : IBlogService
     {
+        IBlogDal _blog;
+        public BlogManager(IBlogDal blogDal)
+        {
+            _blog = blogDal;
+        }
+
         public void TAdd(Blog entity)
         {
-            throw new NotImplementedException();
+            _blog.Add(entity);   
         }
 
         public void TDelete(Blog entity)
         {
-            throw new NotImplementedException();
+            _blog.Delete(entity);
         }
 
         public Blog TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _blog.GetById(id);
         }
 
         public List<Blog> TListAll()
         {
-            throw new NotImplementedException();
+            return _blog.ListAll();
         }
 
         public void TUpdate(Blog entity)
         {
-            throw new NotImplementedException();
+            _blog.Update(entity);
         }
     }
 }

@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
-    public class Category : Controller
+    public class Blog : Controller
     {
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+        BlogManager bm = new BlogManager(new EfBlogRepository());
         public IActionResult Index()
         {
-            var values = cm.TListAll();
+            var values = bm.TListAll();
             return View(values);
         }
     }
